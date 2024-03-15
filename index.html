@@ -8,14 +8,20 @@
     <title>Meme generator</title>
 </head>
 
-<body>
+<body onload="onInit()">
 
     <section class="gallery">
+        <img onclick="renderMeme(this)" src="meme-imgs (square)/1.jpg">
 
     </section>
 
-    <section class="editor"></section>
+    <section class="editor">
+        <canvas width="400" height="400">
+
+        </canvas>
+    </section>
     <script src="main.js"></script>
+    <script src="meme-controller.js"></script>
 </body>
 
 </html>
