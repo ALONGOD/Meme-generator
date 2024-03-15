@@ -8,13 +8,15 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
 }
 
-renderMeme()
+// renderMeme()
 
-function renderMeme(elImg) {
-    // var elImg = document.querySelector('img')
+function renderMeme() {
+    var meme = getMeme()
+    const elImg = new Image()
+    elImg.src = `imgs/${meme.selectedImgId}.jpg`;
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    drawText('hi there', 150, 150)
-
+    drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150)
+    // txt, size, color
 }
 
 
@@ -30,4 +32,12 @@ function drawText(text, x, y) {
 
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
+}
+
+
+
+function onWriteTxt(elTxt) {
+    var text = elTxt.value
+    setLineTxt(text)
+    renderMeme()
 }
