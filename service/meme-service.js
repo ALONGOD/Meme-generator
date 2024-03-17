@@ -1,14 +1,14 @@
 'use strict'
 
-var gImgs = [{ id: 1, url: 'imgs/1.jpg', keywords: ['funny', 'cat'] }, { id: 2, url: 'imgs/2.jpg', keywords: ['funny', 'cat'] }]
+var gImgs = [{ id: 1, url: 'imgs/1.jpg', keywords: ['funny', 'cat'] }, { id: 2, url: 'imgs/2.jpg', keywords: ['funny', 'cat'] }, { id: 3, url: 'imgs/3.jpg', keywords: ['funny', 'cat'] }]
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
         {
             txt: 'I eat Falafel',
-            size: 20,
-            color: 'red'
+            size: 50,
+            color: 'black'
         }
     ]
 }
@@ -40,14 +40,18 @@ function setImg(id) {
         lines: [
             {
                 txt: 'I eat Falafel',
-                size: 20,
-                color: 'red'
+                size: 50,
+                color: 'black'
             }
         ]
 
     }
     gMeme = gMemeNew
+}
 
+
+function changeFontSize(operator) {
+    operator === '+' ? gMeme.lines[gMeme.selectedLineIdx].size += (10) : gMeme.lines[gMeme.selectedLineIdx].size -= (10)
 
 
 }

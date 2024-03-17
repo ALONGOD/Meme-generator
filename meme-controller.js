@@ -26,8 +26,7 @@ function drawText(text, x, y, fontSize, color) {
 
     gCtx.fillStyle = color
 
-    gCtx.font = '45px Arial'
-    gCtx.font = `${fontSize} Arial`
+    gCtx.font = `${fontSize}px Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -47,6 +46,13 @@ function onChangeColor(elColor) {
     var color = elColor.value
     setColorTxt(color)
     renderMeme()
+}
+
+function onChangeFontSize(operator) {
+    changeFontSize(operator)
+    renderMeme()
+
+
 }
 
 
@@ -81,3 +87,5 @@ function onDownloadImg(elLink) {
     const imgContent = gCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
     elLink.href = imgContent;
 }
+
+
