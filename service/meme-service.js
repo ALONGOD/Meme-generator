@@ -49,13 +49,6 @@ function setImg(id) {
                 y: 150,
                 size: 50,
                 color: 'black'
-            },
-            {
-                txt: 'I Love Falafel',
-                x: 200,
-                y: 250,
-                size: 50,
-                color: 'pink'
             }
         ]
 
@@ -70,13 +63,14 @@ function changeFontSize(operator) {
 
 function setNewLine() {
     var newLine = {
-        txt: 'Pizza',
+        txt: 'New Line',
         x: 100,
         y: 300,
-        size: 20,
+        size: 30,
         color: 'black'
     }
     gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx++
 }
 
 function switchSelectedLine() {
@@ -84,4 +78,18 @@ function switchSelectedLine() {
     gMeme.selectedLineIdx++
     if (gMeme.selectedLineIdx === numLines) gMeme.selectedLineIdx = 0
 
+}
+
+
+function moveLineRight() {
+    gMeme.lines[gMeme.selectedLineIdx].x += 10
+}
+function moveLineLeft() {
+    gMeme.lines[gMeme.selectedLineIdx].x -= 10
+}
+function moveLineUp() {
+    gMeme.lines[gMeme.selectedLineIdx].y -= 10
+}
+function moveLineDown() {
+    gMeme.lines[gMeme.selectedLineIdx].y += 10
 }

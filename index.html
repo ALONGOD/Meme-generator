@@ -13,26 +13,33 @@
     <nav>
         <div class="header">Alon's meme project</div>
         <div class="nav-links">
-            <a href="#">Gallery</a>
+            <a onclick="toggleSections()" href="#">Gallery</a>
             |
-            <a href="#">About</a>
+            <a onclick="toggleSections()" href="#">Editor</a>
         </div>
     </nav>
 
     <section class="gallery">
-        <!-- <img id="img-1" onclick="renderMeme(this)" src="imgs/1.jpg"> -->
 
     </section>
 
     <section class="editor">
-        <label for="text">Text:</label>
-        <input oninput="onWriteTxt(this)" placeholder="Meme text..." id="text" type="text">
-        <label for="color">Text Color:</label>
-        <input oninput="onChangeColor(this)" id="color" type="color">
-        <button onclick="onChangeFontSize('+')">A+</button>
-        <button onclick="onChangeFontSize('-')">A-</button>
-        <button onclick="onAddLine()">Add Line</button>
-        <button onclick="onSwitchLine()">Switch Line</button>
+        <div class="controls">
+            <label for="text">Text:</label>
+            <input oninput="onWriteTxt(this)" placeholder="Meme text..." id="text" type="text">
+            <label for="color">Text Color:</label>
+            <input oninput="onChangeColor(this)" id="color" type="color">
+            <button onclick="onChangeFontSize('+')">A+</button>
+            <button onclick="onChangeFontSize('-')">A-</button>
+            <button onclick="onAddLine()">Add Line</button>
+            <button onclick="onSwitchLine()">Switch Line</button>
+            <div class="arrow-buttons">
+                <button onclick="onMoveLeft()" class="arrow-button">⬅️</button>
+                <button onclick="onMoveRight()" class="arrow-button">➡️</button>
+                <button onclick="onMoveUp()" class="arrow-button">⬆️</button>
+                <button onclick="onMoveDown()" class="arrow-button">⬇️</button>
+            </div>
+        </div>
 
         <canvas width="400" height="400">
 

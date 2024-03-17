@@ -9,7 +9,10 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
 }
 
-// setTimeout(() => renderMeme, 1000)
+function toggleSections() {
+    document.querySelector('.gallery').classList.toggle('hide')
+    document.querySelector('.editor').classList.toggle('hide')
+}
 
 function renderMeme() {
     var meme = getMeme()
@@ -72,6 +75,25 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onMoveLeft() {
+    moveLineLeft()
+    renderMeme()
+
+}
+function onMoveRight() {
+    moveLineRight()
+    renderMeme()
+
+}
+function onMoveUp() {
+    moveLineUp()
+    renderMeme()
+
+}
+function onMoveDown() {
+    moveLineDown()
+    renderMeme()
+}
 
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format

@@ -1,3 +1,8 @@
+html {
+    background-color: grey;
+    box-sizing: border-box;
+}
+
 .hide {
     display: none;
 }
@@ -28,14 +33,103 @@ nav {
     margin-left: 1em;
 }
 
-
+/* 
 .gallery {
-    /* display: grid; */
+    display: grid;
 
+} */
+
+/* Update for .editor class */
+.editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
-.editor {}
+/* Adjust canvas height to match controls */
+.canvas {
+    grid-column: 1 / 2;
+    align-self: start;
+    /* Align canvas to the top */
+}
 
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls button {
+    margin: 5px;
+    padding: 8px 16px;
+    font-size: 1em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls input[type="text"],
+.controls input[type="color"] {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #521414;
+    width: 80%;
+}
+
+.controls label {
+    margin: 5px;
+    font-size: 1em;
+}
+
+.arrow-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.arrow-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover {
+    background-color: #6daf71;
+}
+
+.arrow-button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.download {
+    margin-top: 20px;
+}
 
 footer {
     display: flex;
