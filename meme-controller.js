@@ -8,7 +8,7 @@ function onInit() {
     gCtx = gCanvas.getContext('2d')
 }
 
-// renderMeme()
+// setTimeout(() => renderMeme, 1000)
 
 function renderMeme() {
     var meme = getMeme()
@@ -40,4 +40,22 @@ function onWriteTxt(elTxt) {
     var text = elTxt.value
     setLineTxt(text)
     renderMeme()
+}
+
+function onDownloadImg(elLink) {
+    const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
+    elLink.href = imgContent;
+}
+
+// gallery controller
+renderGallery()
+function renderGallery() {
+    const imgs = getImgs()
+    let elImgs = document.querySelector(".gallery")
+    let strHtml = imgs.map((img) => {
+        return `<img onclick="onImgClick(${img.id})" src="${img.url}">`
+    })
+        .join("")
+    elImgs.innerHTML = strHtml
+
 }
