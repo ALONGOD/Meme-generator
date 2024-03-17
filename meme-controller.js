@@ -2,6 +2,7 @@
 
 let gCanvas
 let gCtx
+var gIsSelectedLine = false
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -15,12 +16,19 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = `imgs/${meme.selectedImgId}.jpg`;
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150, meme.lines[meme.selectedLineIdx].size, meme.lines[meme.selectedLineIdx].color)
+    meme.lines.forEach((meme, idx) => {
+        if (idx === meme.selectedLineIdx) gIsSelected = true
+        drawText(meme.txt, meme.x, meme.y, meme.size, meme.color)
+    });
+    // drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150, meme.lines[meme.selectedLineIdx].size, meme.lines[meme.selectedLineIdx].color)
     // txt, size, color
 }
 
 
-function drawText(text, x, y, fontSize, color) {
+function drawText(text, x = 100, y = 100, fontSize, color) {
+    var meme = getMeme()
+    document.getElementById("text").value = meme.lines[meme.selectedLineIdx].txt;
+
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
 
@@ -51,10 +59,18 @@ function onChangeColor(elColor) {
 function onChangeFontSize(operator) {
     changeFontSize(operator)
     renderMeme()
+}
 
+function onAddLine() {
+    setNewLine()
+    renderMeme()
 
 }
 
+function onSwitchLine() {
+    switchSelectedLine()
+    renderMeme()
+}
 
 
 function onDownloadImg(elLink) {
