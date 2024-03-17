@@ -24,7 +24,7 @@ function drawText(text, x, y, fontSize, color) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = color
 
-    // gCtx.fillStyle = 'lightsteelblue'
+    gCtx.fillStyle = color
 
     gCtx.font = '45px Arial'
     gCtx.font = `${fontSize} Arial`
@@ -42,6 +42,14 @@ function onWriteTxt(elTxt) {
     setLineTxt(text)
     renderMeme()
 }
+
+function onChangeColor(elColor) {
+    var color = elColor.value
+    setColorTxt(color)
+    renderMeme()
+}
+
+
 
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
@@ -65,4 +73,11 @@ function renderGallery() {
 function onImgSelect(id) {
     setImg(id)
     renderMeme()
+}
+
+
+
+function onDownloadImg(elLink) {
+    const imgContent = gCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
+    elLink.href = imgContent;
 }

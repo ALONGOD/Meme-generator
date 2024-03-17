@@ -9,6 +9,14 @@
 </head>
 
 <body onload="onInit()">
+    <nav>
+        <div class="header">Alon's meme project</div>
+        <div class="nav-links">
+            <a href="#">Gallery</a>
+            |
+            <a href="#">About</a>
+        </div>
+    </nav>
 
     <section class="gallery">
         <!-- <img id="img-1" onclick="renderMeme(this)" src="imgs/1.jpg"> -->
@@ -16,12 +24,23 @@
     </section>
 
     <section class="editor">
-        <label for="text"></label>
-        <input oninput="onWriteTxt(this)" placeholder="Meme text..." name="text" type="text">
+        <label for="text">Text:</label>
+        <input oninput="onWriteTxt(this)" placeholder="Meme text..." id="text" type="text">
+        <label for="color">Text Color:</label>
+        <input oninput="onChangeColor(this)" id="color" type="color">
+
         <canvas width="400" height="400">
 
         </canvas>
+
+        <a href="#" class="btn download" onclick="onDownloadImg(this)" download="my-img.jpg">
+            Download &#128229;
+        </a>
     </section>
+
+    <footer>
+        @Copyright Alon Goddard
+    </footer>
 
     <script src="service/meme-service.js"></script>
     <script src="meme-controller.js"></script>

@@ -1,3 +1,50 @@
 .hide {
     display: none;
 }
+
+
+
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+
+
+    width: 100%;
+    background-color: lightsalmon;
+    font-size: 2em;
+    margin-bottom: 2em;
+    padding: 1em 0;
+
+}
+
+.nav-links {
+    position: absolute;
+    right: 1em;
+}
+
+.header {
+    margin-left: 1em;
+}
+
+
+.gallery {
+    /* display: grid; */
+
+}
+
+.editor {}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    background-color: lightsalmon;
+    font-size: 2em;
+    margin-bottom: 2em;
+    padding: 1em 0;
+}

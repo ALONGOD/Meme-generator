@@ -23,6 +23,10 @@ function setLineTxt(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
 
+function setColorTxt(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color
+}
+
 function getImgs() {
     return gImgs
 }
