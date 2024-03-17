@@ -15,18 +15,19 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = `imgs/${meme.selectedImgId}.jpg`;
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150)
+    drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150, meme.lines[meme.selectedLineIdx].size, meme.lines[meme.selectedLineIdx].color)
     // txt, size, color
 }
 
 
-function drawText(text, x, y) {
+function drawText(text, x, y, fontSize, color) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'orange'
+    gCtx.strokeStyle = color
 
-    gCtx.fillStyle = 'lightsteelblue'
+    // gCtx.fillStyle = 'lightsteelblue'
 
     gCtx.font = '45px Arial'
+    gCtx.font = `${fontSize} Arial`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 
@@ -53,9 +54,15 @@ function renderGallery() {
     const imgs = getImgs()
     let elImgs = document.querySelector(".gallery")
     let strHtml = imgs.map((img) => {
-        return `<img onclick="onImgClick(${img.id})" src="${img.url}">`
+        return `<img onclick="onImgSelect(${img.id})" src="${img.url}">`
     })
         .join("")
     elImgs.innerHTML = strHtml
 
+}
+
+
+function onImgSelect(id) {
+    setImg(id)
+    renderMeme()
 }
