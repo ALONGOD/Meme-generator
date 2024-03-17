@@ -14,6 +14,7 @@ function toggleSections() {
     document.querySelector('.editor').classList.toggle('hide')
 }
 
+
 function renderMeme() {
     var meme = getMeme()
     const elImg = new Image()
@@ -106,7 +107,9 @@ function renderGallery() {
     const imgs = getImgs()
     let elImgs = document.querySelector(".gallery")
     let strHtml = imgs.map((img) => {
-        return `<img onclick="onImgSelect(${img.id})" src="${img.url}">`
+        return `<div class="gallery-item">
+        <img class="gallery-img" onclick="onImgSelect(${img.id})" src="${img.url}">
+        </div>`
     })
         .join("")
     elImgs.innerHTML = strHtml

@@ -3,9 +3,25 @@
 }
 
 
-@media (max-width:720px) {
+@media screen and (max-width:768px) {
     :root {
         font-size: 12px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        /* Adjust column width for smaller screens */
+    }
+
+    .editor {
+        grid-template-columns: 1fr;
+        /* Change to single column layout on smaller screens */
+    }
+
+    .controls input[type="text"],
+    .controls input[type="color"] {
+        width: 100%;
+        /* Make inputs take up full width on smaller screens */
     }
 
 }
