@@ -3,6 +3,7 @@
 let gCanvas
 let gCtx
 var gIsSelectedLine = false
+const TOUCH_EVS = ["touchstart", "touchmove", "touchend"];
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -24,7 +25,7 @@ function renderMeme() {
         if (idx === meme.selectedLineIdx) {
             // Get the width and height of the text
             const textWidth = getTextWidth(line.txt, line.size, 'Arial');
-            const textHeight = line.size;
+            const textHeight = line.size + 30;
 
             // Calculate the position and dimensions of the rectangle
             const rectX = line.x - textWidth / 2 - 10; // Adjusted for center alignment
@@ -155,3 +156,8 @@ function onDownloadImg(elLink) {
 }
 
 
+function insertEmoji(emoji) {
+    addEmoji(emoji)
+    renderMeme()
+
+}

@@ -100,3 +100,21 @@ function moveLineUp() {
 function moveLineDown() {
     gMeme.lines[gMeme.selectedLineIdx].y += 10
 }
+
+function addEmoji(emojiSrc) {
+    switch (true) {
+        case emojiSrc.includes("😀"):
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😀";
+            break;
+        case emojiSrc.includes("😂"):
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😂";
+            break;
+        case emojiSrc.includes("😡"):
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😡";
+            break;
+        case emojiSrc.includes("😱"):
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😱";
+            break;
+    }
+
+}
