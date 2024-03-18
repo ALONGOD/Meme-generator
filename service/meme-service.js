@@ -101,20 +101,156 @@ function moveLineDown() {
     gMeme.lines[gMeme.selectedLineIdx].y += 10
 }
 
-function addEmoji(emojiSrc) {
+function addEmoji(emoji) {
     switch (true) {
-        case emojiSrc.includes("😀"):
+        case emoji.includes("😀"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😀";
             break;
-        case emojiSrc.includes("😂"):
+        case emoji.includes("😂"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😂";
             break;
-        case emojiSrc.includes("😡"):
+        case emoji.includes("😡"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😡";
             break;
-        case emojiSrc.includes("😱"):
+        case emoji.includes("😱"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😱";
+            break;
+        case emoji.includes("❤️"):
+            gMeme.lines[gMeme.selectedLineIdx].txt += "❤️";
             break;
     }
 
+}
+
+
+var randomMemes = [{
+    selectedImgId: 1,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'teachers pet',
+            x: 200,
+            y: 50,
+            size: 50,
+            color: 'white'
+        }
+    ]
+
+}, {
+    selectedImgId: 2,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'me and your mum ❤️',
+            x: 200,
+            y: 50,
+            size: 30,
+            color: 'black'
+        }
+    ]
+
+}, {
+    selectedImgId: 3,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'when you finally finish the sprint',
+            x: 200,
+            y: 300,
+            size: 20,
+            color: 'black'
+        }
+    ]
+
+}, {
+    selectedImgId: 4,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'when you finally finish the sprint',
+            x: 200,
+            y: 50,
+            size: 20,
+            color: 'black'
+        }
+    ]
+
+}, {
+    selectedImgId: 5,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'when you finally finish the sprint',
+            x: 150,
+            y: 50,
+            size: 20,
+            color: 'black'
+        }
+    ]
+
+}, {
+    selectedImgId: 6,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'me trying to explain what i do as a junior',
+            x: 200,
+            y: 50,
+            size: 20,
+            color: 'pink'
+        }
+    ]
+
+}, {
+    selectedImgId: 13,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'when you get that junior position',
+            x: 200,
+            y: 50,
+            size: 20,
+            color: 'white'
+        }
+    ]
+
+}, {
+    selectedImgId: 9,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'כשהיא אומרת יש לי בית ריק',
+            x: 200,
+            y: 50,
+            size: 30,
+            color: 'black'
+        }
+    ]
+
+}, {
+    selectedImgId: 10,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'אובמה פשוט מלך',
+            x: 200,
+            y: 50,
+            size: 50,
+            color: 'black'
+        }
+    ]
+
+}]
+
+
+
+function setRandomMeme() {
+    gMeme = randomMemes[getRandomInt(0, randomMemes.length)]
+}
+
+
+function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }

@@ -148,6 +148,11 @@ function onImgSelect(id) {
     renderMeme()
 }
 
+function onRandomMeme() {
+    toggleSections()
+    setRandomMeme()
+    renderMeme()
+}
 
 
 function onDownloadImg(elLink) {
