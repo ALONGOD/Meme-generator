@@ -46,9 +46,9 @@ function setImg(id) {
         selectedLineIdx: 0,
         lines: [
             {
-                txt: 'I eat Falafel',
-                x: 150,
-                y: 150,
+                txt: 'I love Falafel',
+                x: 200,
+                y: 250,
                 size: 50,
                 color: 'black'
             }

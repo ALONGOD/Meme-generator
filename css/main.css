@@ -155,7 +155,11 @@ nav {
 }
 
 .download {
-    margin-top: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.7em;
     /* Converted from 20px */
 }
 
