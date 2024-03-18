@@ -2,7 +2,6 @@
 
 let gCanvas
 let gCtx
-var gIsSelectedLine = false
 const TOUCH_EVS = ["touchstart", "touchmove", "touchend"];
 
 function onInit() {
