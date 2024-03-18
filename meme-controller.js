@@ -95,6 +95,11 @@ function onSwitchLine() {
     renderMeme()
 }
 
+function onDeleteLine() {
+    deleteSelectedLine()
+    renderMeme()
+}
+
 function onMoveLeft() {
     moveLineLeft()
     renderMeme()

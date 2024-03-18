@@ -82,6 +82,11 @@ function switchSelectedLine() {
 
 }
 
+function deleteSelectedLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    gMeme.selectedLineIdx = 0;
+}
+
 
 function moveLineRight() {
     gMeme.lines[gMeme.selectedLineIdx].x += 10
