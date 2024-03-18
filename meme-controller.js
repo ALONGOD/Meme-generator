@@ -137,6 +137,7 @@ function renderGallery() {
 
 
 function onImgSelect(id) {
+    toggleSections()
     setImg(id)
     renderMeme()
 }

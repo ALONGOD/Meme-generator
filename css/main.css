@@ -3,11 +3,6 @@ html {
     box-sizing: border-box;
 }
 
-.hide {
-    display: none;
-}
-
-
 
 nav {
     position: relative;
@@ -175,4 +170,9 @@ footer {
     font-size: 2em;
     margin-bottom: 2em;
     padding: 1em 0;
+}
+
+
+.hide {
+    display: none;
 }
