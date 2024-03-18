@@ -24,4 +24,14 @@
         /* Make inputs take up full width on smaller screens */
     }
 
+    canvas {
+        order: 1;
+        /* Ensure the editor section appears first on mobile */
+    }
+
+    .controls {
+        order: 2;
+        /* Ensure the controls section appears second on mobile */
+    }
+
 }
