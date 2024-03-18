@@ -96,6 +96,15 @@ nav {
     width: 80%;
 }
 
+
+#text {
+    width: 20vw
+}
+
+#color {
+    width: 10vw;
+}
+
 .controls label {
     margin: 0.3125em 0;
     /* Converted from 5px */

@@ -13,21 +13,40 @@ function toggleSections() {
     document.querySelector('.gallery').classList.toggle('hide')
     document.querySelector('.editor').classList.toggle('hide')
 }
-
-
 function renderMeme() {
-    var meme = getMeme()
-    const elImg = new Image()
+    var meme = getMeme();
+    const elImg = new Image();
     elImg.src = `imgs/${meme.selectedImgId}.jpg`;
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    meme.lines.forEach((meme, idx) => {
-        if (idx === meme.selectedLineIdx) gIsSelected = true
-        drawText(meme.txt, meme.x, meme.y, meme.size, meme.color)
+    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+
+    // Draw meme lines
+    meme.lines.forEach((line, idx) => {
+        if (idx === meme.selectedLineIdx) {
+            // Get the width and height of the text
+            const textWidth = getTextWidth(line.txt, line.size, 'Arial');
+            const textHeight = line.size;
+
+            // Calculate the position and dimensions of the rectangle
+            const rectX = line.x - textWidth / 2 - 10; // Adjusted for center alignment
+            const rectY = line.y - textHeight / 2 - 5; // Adjusted for center alignment
+            const rectWidth = textWidth + 20; // Add padding for the sides
+            const rectHeight = textHeight + 10; // Add padding for the top and bottom
+
+            // Draw a frame around the selected line
+            gCtx.strokeStyle = 'white'; // Set the color of the frame
+            gCtx.lineWidth = 3; // Set the width of the frame
+            gCtx.strokeRect(rectX, rectY, rectWidth, rectHeight);
+        }
+        drawText(line.txt, line.x, line.y, line.size, line.color);
     });
-    // drawText(meme.lines[meme.selectedLineIdx].txt, 150, 150, meme.lines[meme.selectedLineIdx].size, meme.lines[meme.selectedLineIdx].color)
-    // txt, size, color
 }
 
+function getTextWidth(text, fontSize, fontFace) {
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    context.font = fontSize + 'px ' + fontFace;
+    return context.measureText(text).width;
+}
 
 function drawText(text, x = 100, y = 100, fontSize, color) {
     var meme = getMeme()
