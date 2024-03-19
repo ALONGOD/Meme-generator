@@ -1,10 +1,10 @@
 'use strict'
 
-let gCanvas
-let gCtx
-let gIsDragging = false
-let gDragOffsetX = 0
-let gDragOffsetY = 0
+var gCanvas
+var gCtx
+var gIsDragging = false
+var gDragOffsetX = 0
+var gDragOffsetY = 0
 
 function onInit() {
     gCanvas = document.querySelector('canvas')
@@ -108,7 +108,6 @@ function onMouseUp() {
 const toggleDef = { innerText: 'Editor' }
 
 function toggleSections(elSection = toggleDef) {
-    // console.log(elSection.innerText)
     if (elSection.innerText === 'Gallery') {
         document.querySelector('.editor').classList.add('hide')
         document.querySelector('.saved').classList.add('hide')
@@ -124,14 +123,6 @@ function toggleSections(elSection = toggleDef) {
         document.querySelector('.gallery').classList.add('hide')
         document.querySelector('.editor').classList.add('hide')
     }
-    // else {
-    //     document.querySelector('.editor').classList.add('hide')
-    //     document.querySelector('.saved').classList.add('hide')
-    //     document.querySelector('.gallery').classList.remove('hide')
-    // }
-
-
-
 }
 function renderMeme() {
     var meme = getMeme();
@@ -249,6 +240,7 @@ function onDownloadImg(elLink) {
 }
 
 // gallery controller
+
 renderGallery()
 function renderGallery() {
     const imgs = getImgs()
@@ -275,13 +267,6 @@ function onRandomMeme() {
     setRandomMeme()
     renderMeme()
 }
-
-
-function onDownloadImg(elLink) {
-    const imgContent = gCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
-    elLink.href = imgContent;
-}
-
 
 function insertEmoji(emoji) {
     addEmoji(emoji)
@@ -330,53 +315,4 @@ function doUploadImg(imgDataUrl, onSuccess) {
     }
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
-}
-
-
-// saved section
-
-
-function onSaveMeme() {
-    const savedMemes = loadFromStorage('savedMemes') || []
-    const meme = getMeme()
-    savedMemes.push(meme)
-    saveToStorage('savedMemes', savedMemes)
-    renderSavedMemes()
-}
-
-function getSavedMemes() {
-    return loadFromStorage('savedMemes') || []
-}
-
-function renderSavedMemes() {
-    const savedMemes = getSavedMemes(); // Retrieve saved memes
-    const savedSection = document.querySelector('.saved'); // Get reference to the "Saved" section
-
-    // Clear the existing content of the "Saved" section
-    savedSection.innerHTML = '';
-
-    // Iterate through saved memes and render each one
-    savedMemes.forEach((meme, index) => {
-        const memeContainer = document.createElement('div');
-        memeContainer.classList.add('saved-meme');
-
-        // Set the image ID as a data attribute to be retrieved when clicked
-        // memeContainer.dataset.imgId = meme.selectedImgId;
-
-        // Construct the innerHTML with the onclick event inline
-        memeContainer.innerHTML = `
-            <img src="imgs/${meme.selectedImgId}.jpg" onclick="onImgSelect(${meme.selectedImgId})">
-            <button class="remove-meme-btn" onclick="removeSavedMeme(${index})">Remove</button>
-        `;
-
-        // Append the saved meme container to the "Saved" section
-        savedSection.appendChild(memeContainer);
-    });
-}
-
-function removeSavedMeme(index) {
-    const savedMemes = getSavedMemes(); // Get the current list of saved memes
-    savedMemes.splice(index, 1); // Remove the meme at the specified index
-    saveToStorage('savedMemes', savedMemes); // Save the updated list to local storage
-    renderSavedMemes(); // Re-render the saved memes to reflect the changes
 }
