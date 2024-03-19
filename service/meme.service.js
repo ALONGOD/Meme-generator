@@ -1,7 +1,7 @@
 'use strict'
 
 
-const gImgs = [{ id: 1, url: 'imgs/1.jpg', keywords: ['funny', 'cat'] }, { id: 2, url: 'imgs/2.jpg', keywords: ['funny', 'cat'] }, { id: 3, url: 'imgs/3.jpg', keywords: ['funny', 'cat'] }, { id: 4, url: 'imgs/4.jpg', keywords: ['funny', 'cat'] }, { id: 5, url: 'imgs/5.jpg', keywords: ['funny', 'cat'] }, { id: 6, url: 'imgs/6.jpg', keywords: ['funny', 'cat'] }, { id: 7, url: 'imgs/7.jpg', keywords: ['funny', 'cat'] }, { id: 8, url: 'imgs/8.jpg', keywords: ['funny', 'cat'] }, { id: 9, url: 'imgs/9.jpg', keywords: ['funny', 'cat'] }, { id: 10, url: 'imgs/10.jpg', keywords: ['funny', 'cat'] }, { id: 11, url: 'imgs/17.jpg', keywords: ['funny', 'cat'] }, { id: 12, url: 'imgs/12.jpg', keywords: ['funny', 'cat'] }, { id: 13, url: 'imgs/13.jpg', keywords: ['funny', 'cat'] }, { id: 14, url: 'imgs/14.jpg', keywords: ['funny', 'cat'] }, { id: 15, url: 'imgs/15.jpg', keywords: ['funny', 'cat'] }, { id: 16, url: 'imgs/16.jpg', keywords: ['funny', 'cat'] }]
+const gImgs = [{ id: 1, url: 'imgs/1.jpg', keywords: ['funny', 'cat'] }, { id: 2, url: 'imgs/2.jpg', keywords: ['funny', 'cat'] }, { id: 3, url: 'imgs/3.jpg', keywords: ['funny', 'cat'] }, { id: 4, url: 'imgs/4.jpg', keywords: ['funny', 'cat'] }, { id: 5, url: 'imgs/5.jpg', keywords: ['funny', 'cat'] }, { id: 6, url: 'imgs/6.jpg', keywords: ['funny', 'cat'] }, { id: 7, url: 'imgs/7.jpg', keywords: ['funny', 'cat'] }, { id: 8, url: 'imgs/8.jpg', keywords: ['funny', 'cat'] }, { id: 9, url: 'imgs/9.jpg', keywords: ['funny', 'cat'] }, { id: 10, url: 'imgs/10.jpg', keywords: ['funny', 'cat'] }, { id: 11, url: 'imgs/11.jpg', keywords: ['funny', 'cat'] }, { id: 12, url: 'imgs/12.jpg', keywords: ['funny', 'cat'] }, { id: 13, url: 'imgs/13.jpg', keywords: ['funny', 'cat'] }, { id: 14, url: 'imgs/14.jpg', keywords: ['funny', 'cat'] }, { id: 15, url: 'imgs/15.jpg', keywords: ['funny', 'cat'] }, { id: 16, url: 'imgs/16.jpg', keywords: ['funny', 'cat'] }]
 
 const randomMemes = [{ selectedImgId: 1, selectedLineIdx: 0, lines: [{ txt: 'teachers pet', x: 200, y: 50, size: 50, color: 'white' }] },
 { selectedImgId: 2, selectedLineIdx: 0, lines: [{ txt: 'me and your mum ❤️', x: 200, y: 50, size: 30, color: 'black' }] },
@@ -51,13 +51,9 @@ function getImgs() {
 
 
 function setImg(id) {
-    const img = getImgs()[id - 1];
-    const savedMemes = getSavedMemes();
-
-    // Find the saved meme with the selected image ID
-    const savedMeme = savedMemes.find(meme => meme.selectedImgId === id);
-
-    // If a saved meme is found, use it, otherwise create a new meme object
+    const img = getImgs()[id - 1]
+    const savedMemes = getSavedMemes()
+    const savedMeme = savedMemes.find(meme => meme.selectedImgId === id)
     const gMemeNew = savedMeme ? savedMeme : {
         selectedImgId: id,
         selectedLineIdx: 0,
@@ -70,9 +66,9 @@ function setImg(id) {
                 color: 'black'
             }
         ]
-    };
+    }
 
-    gMeme = gMemeNew;
+    gMeme = gMemeNew
 }
 
 
@@ -100,8 +96,8 @@ function switchSelectedLine() {
 }
 
 function deleteSelectedLine() {
-    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
-    gMeme.selectedLineIdx = 0;
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx = 0
 }
 
 
@@ -121,19 +117,19 @@ function moveLineDown() {
 function addEmoji(emoji) {
     switch (true) {
         case emoji.includes("😀"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😀";
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😀"
             break;
         case emoji.includes("😂"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😂";
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😂"
             break;
         case emoji.includes("😡"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😡";
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😡"
             break;
         case emoji.includes("😱"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😱";
+            gMeme.lines[gMeme.selectedLineIdx].txt += "😱"
             break;
         case emoji.includes("❤️"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "❤️";
+            gMeme.lines[gMeme.selectedLineIdx].txt += "❤️"
             break;
     }
 
@@ -146,7 +142,7 @@ function setRandomMeme() {
 
 
 function getRandomInt(min, max) {
-    const minCeiled = Math.ceil(min);
-    const maxFloored = Math.floor(max);
-    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+    const minCeiled = Math.ceil(min)
+    const maxFloored = Math.floor(max)
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
 }
