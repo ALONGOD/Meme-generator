@@ -51,8 +51,14 @@ function getImgs() {
 
 
 function setImg(id) {
-    var img = getImgs()[id - 1]
-    var gMemeNew = {
+    const img = getImgs()[id - 1];
+    const savedMemes = getSavedMemes();
+
+    // Find the saved meme with the selected image ID
+    const savedMeme = savedMemes.find(meme => meme.selectedImgId === id);
+
+    // If a saved meme is found, use it, otherwise create a new meme object
+    const gMemeNew = savedMeme ? savedMeme : {
         selectedImgId: id,
         selectedLineIdx: 0,
         lines: [
@@ -64,9 +70,9 @@ function setImg(id) {
                 color: 'black'
             }
         ]
+    };
 
-    }
-    gMeme = gMemeNew
+    gMeme = gMemeNew;
 }
 
 

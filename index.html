@@ -13,9 +13,11 @@
     <nav>
         <div class="header">Alon's meme project</div>
         <div class="nav-links">
-            <a onclick="toggleSections()" href="#">Gallery</a>
+            <a onclick="toggleSections(this)" href="#">Gallery</a>
             |
-            <a onclick="toggleSections()" href="#">Editor</a>
+            <a onclick="toggleSections(this)" href="#">Editor</a>
+            |
+            <a onclick="toggleSections(this)" href="#">Saved</a>
         </div>
     </nav>
     <button class="random-meme" onclick="onRandomMeme()">Random Meme</button>
@@ -53,6 +55,7 @@
                     Download &#128229;
                 </a>
                 <button class="btn share-facebook" onclick="onShareFacebook()">Share on Facebook</button>
+                <button class="btn" onclick="onSaveMeme()">Save Meme</button>
             </div>
         </div>
 
@@ -62,12 +65,16 @@
 
     </section>
 
+    <section class="saved">
+    </section>
+
     <footer>
         © 2024 Alon Goddard
     </footer>
 
-    <script src="service/meme-service.js"></script>
-    <script src="meme-controller.js"></script>
+    <script src="service/util.service.js"></script>
+    <script src="service/meme.service.js"></script>
+    <script src="meme.controller.js"></script>
 </body>
 
 </html>
