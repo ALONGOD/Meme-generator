@@ -1,12 +1,108 @@
-'use strict'
+'use strict';
 
-let gCanvas
-let gCtx
-const TOUCH_EVS = ["touchstart", "touchmove", "touchend"];
+let gCanvas;
+let gCtx;
+let gIsDragging = false;
+let gDragOffsetX = 0;
+let gDragOffsetY = 0;
 
 function onInit() {
-    gCanvas = document.querySelector('canvas')
-    gCtx = gCanvas.getContext('2d')
+    gCanvas = document.querySelector('canvas');
+    gCtx = gCanvas.getContext('2d');
+
+    gCanvas.addEventListener('mousedown', onMouseDown);
+    gCanvas.addEventListener('mousemove', onMouseMove);
+    gCanvas.addEventListener('mouseup', onMouseUp);
+
+    gCanvas.addEventListener('touchstart', onTouchStart);
+    gCanvas.addEventListener('touchmove', onTouchMove);
+    gCanvas.addEventListener('touchend', onTouchEnd);
+
+    renderMeme();
+}
+
+function onTouchStart(event) {
+    event.preventDefault();
+    const touch = event.touches[0];
+    const touchX = touch.clientX - gCanvas.getBoundingClientRect().left;
+    const touchY = touch.clientY - gCanvas.getBoundingClientRect().top;
+
+    gMeme.lines.forEach((line, idx) => {
+        const textWidth = getTextWidth(line.txt, line.size, 'Arial');
+        const textHeight = line.size;
+
+        const rectX = line.x - textWidth / 2 - 10;
+        const rectY = line.y - textHeight / 2 - 5;
+        const rectWidth = textWidth + 20;
+        const rectHeight = textHeight + 10;
+
+        if (touchX >= rectX && touchX <= rectX + rectWidth && touchY >= rectY && touchY <= rectY + rectHeight) {
+            gIsDragging = true;
+            gDragOffsetX = touchX - line.x;
+            gDragOffsetY = touchY - line.y;
+            gMeme.selectedLineIdx = idx;
+            renderMeme();
+        }
+    });
+}
+
+function onTouchMove(event) {
+    event.preventDefault();
+    if (!gIsDragging) return;
+
+    const touch = event.touches[0];
+    const touchX = touch.clientX - gCanvas.getBoundingClientRect().left;
+    const touchY = touch.clientY - gCanvas.getBoundingClientRect().top;
+
+    gMeme.lines[gMeme.selectedLineIdx].x = touchX - gDragOffsetX;
+    gMeme.lines[gMeme.selectedLineIdx].y = touchY - gDragOffsetY;
+
+    renderMeme();
+}
+
+function onTouchEnd(event) {
+    event.preventDefault();
+    gIsDragging = false;
+}
+
+function onMouseDown(event) {
+    const mouseX = event.offsetX;
+    const mouseY = event.offsetY;
+
+    const meme = getMeme();
+    meme.lines.forEach((line, idx) => {
+        const textWidth = getTextWidth(line.txt, line.size, 'Arial');
+        const textHeight = line.size;
+
+        const rectX = line.x - textWidth / 2 - 10;
+        const rectY = line.y - textHeight / 2 - 5;
+        const rectWidth = textWidth + 20;
+        const rectHeight = textHeight + 10;
+
+        if (mouseX >= rectX && mouseX <= rectX + rectWidth && mouseY >= rectY && mouseY <= rectY + rectHeight) {
+            gIsDragging = true;
+            gDragOffsetX = mouseX - line.x;
+            gDragOffsetY = mouseY - line.y;
+            gMeme.selectedLineIdx = idx;
+            renderMeme();
+        }
+    });
+}
+
+function onMouseMove(event) {
+    if (!gIsDragging) return;
+
+    const mouseX = event.offsetX;
+    const mouseY = event.offsetY;
+
+    gMeme.lines[gMeme.selectedLineIdx].x = mouseX - gDragOffsetX;
+    gMeme.lines[gMeme.selectedLineIdx].y = mouseY - gDragOffsetY;
+
+    renderMeme();
+}
+
+function onMouseUp() {
+    gIsDragging = false;
 }
 
 function toggleSections() {
