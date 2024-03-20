@@ -53,14 +53,13 @@ nav a:visited {
     padding: 10px 20px;
     font-size: 1.2em;
     background-color: #FF5722;
-    /* Orange color */
     color: #FFF;
-    /* White text */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-left: 2em;
+    margin-bottom: 2em;
 }
 
 .random-meme:hover {
