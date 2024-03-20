@@ -77,15 +77,27 @@ function changeFontSize(operator) {
 }
 
 function setNewLine() {
-    var newLine = {
-        txt: 'New Line',
-        x: 100,
-        y: 300,
-        size: 30,
-        color: 'black'
+    if (gMeme.lines.length === 0) {
+        const newLine = {
+            txt: 'New Line',
+            x: 100,
+            y: 300,
+            size: 30,
+            color: 'black'
+        }
+        gMeme.lines.push(newLine)
+    } else {
+        const lastLine = gMeme.lines[gMeme.lines.length - 1]
+        const newLine = {
+            txt: 'New Line',
+            x: lastLine.x,
+            y: lastLine.y + 50,
+            size: lastLine.size,
+            color: lastLine.color
+        }
+        gMeme.lines.push(newLine)
     }
-    gMeme.lines.push(newLine)
-    gMeme.selectedLineIdx++
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function switchSelectedLine() {
@@ -118,19 +130,19 @@ function addEmoji(emoji) {
     switch (true) {
         case emoji.includes("😀"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😀"
-            break;
+            break
         case emoji.includes("😂"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😂"
-            break;
+            break
         case emoji.includes("😡"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😡"
-            break;
+            break
         case emoji.includes("😱"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "😱"
-            break;
+            break
         case emoji.includes("❤️"):
             gMeme.lines[gMeme.selectedLineIdx].txt += "❤️"
-            break;
+            break
     }
 
 }
