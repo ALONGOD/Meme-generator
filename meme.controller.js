@@ -17,10 +17,8 @@ function onInit() {
     gCanvas.addEventListener('touchstart', onTouchStart)
     gCanvas.addEventListener('touchmove', onTouchMove)
     gCanvas.addEventListener('touchend', onTouchEnd)
-
-    renderMeme()
+    renderGallery()
 }
-
 function onTouchStart(event) {
     event.preventDefault()
     const touch = event.touches[0]
@@ -45,7 +43,6 @@ function onTouchStart(event) {
         }
     });
 }
-
 function onTouchMove(event) {
     event.preventDefault()
     if (!gIsDragging) return
@@ -59,12 +56,10 @@ function onTouchMove(event) {
 
     renderMeme()
 }
-
 function onTouchEnd(event) {
     event.preventDefault()
     gIsDragging = false
 }
-
 function onMouseDown(event) {
     const mouseX = event.offsetX
     const mouseY = event.offsetY
@@ -88,7 +83,6 @@ function onMouseDown(event) {
         }
     })
 }
-
 function onMouseMove(event) {
     if (!gIsDragging) return
 
@@ -100,14 +94,10 @@ function onMouseMove(event) {
 
     renderMeme()
 }
-
 function onMouseUp() {
     gIsDragging = false;
 }
-
-const toggleDef = { innerText: 'Editor' }
-
-function toggleSections(elSection = toggleDef) {
+function toggleSections(elSection = { innerText: 'Editor' }) {
     if (elSection.innerText === 'Gallery') {
         document.querySelector('.editor').classList.add('hide')
         document.querySelector('.saved').classList.add('hide')
@@ -131,20 +121,17 @@ function renderMeme() {
 
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
-
         // Draw meme lines
         meme.lines.forEach((line, idx) => {
             if (idx === meme.selectedLineIdx) {
                 // Get the width and height of the text
                 const textWidth = getTextWidth(line.txt, line.size, 'Arial');
                 const textHeight = line.size + 30
-
                 // Calculate the position and dimensions of the rectangle
                 const rectX = line.x - textWidth / 2 - 10; // Adjusted for center alignment
                 const rectY = line.y - textHeight / 2 - 5; // Adjusted for center alignment
                 const rectWidth = textWidth + 20; // Add padding for the sides
                 const rectHeight = textHeight + 10; // Add padding for the top and bottom
-
                 // Draw a frame around the selected line
                 gCtx.strokeStyle = 'white'; // Set the color of the frame
                 gCtx.lineWidth = 3; // Set the width of the frame
@@ -154,14 +141,12 @@ function renderMeme() {
         })
     }
 }
-
 function getTextWidth(text, fontSize, fontFace) {
     var canvas = document.createElement('canvas')
     var context = canvas.getContext('2d')
     context.font = fontSize + 'px ' + fontFace
     return context.measureText(text).width
 }
-
 function drawText(text, x = 100, y = 100, fontSize, color) {
     var meme = getMeme()
     document.getElementById("text").value = meme.lines[meme.selectedLineIdx].txt
@@ -178,32 +163,25 @@ function drawText(text, x = 100, y = 100, fontSize, color) {
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
-
-
-
 function onWriteTxt(elTxt) {
     var text = elTxt.value
     setLineTxt(text)
     renderMeme()
 }
-
 function onChangeColor(elColor) {
     var color = elColor.value
     setColorTxt(color)
     renderMeme()
 }
-
 function onChangeFontSize(operator) {
     changeFontSize(operator)
     renderMeme()
 }
-
 function onAddLine() {
     setNewLine()
     renderMeme()
 
 }
-
 function onSwitchLine() {
     switchSelectedLine()
     renderMeme()
@@ -233,18 +211,14 @@ function onMoveDown() {
     moveLineDown()
     renderMeme()
 }
-
 function onDownloadImg(elLink) {
     const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
     elLink.href = imgContent;
 }
-
 // gallery controller
-
-renderGallery()
 function renderGallery() {
     const imgs = getImgs()
-    let elImgs = document.querySelector(".gallery")
+    const elImgs = document.querySelector(".gallery")
     let strHtml = imgs.map((img) => {
         return `<div class="gallery-item">
         <img class="gallery-img" onclick="onImgSelect(${img.id})" src="${img.url}">
@@ -254,25 +228,21 @@ function renderGallery() {
     elImgs.innerHTML = strHtml
 
 }
-
-
 function onImgSelect(id) {
     toggleSections()
     setImg(id)
     renderMeme()
 }
-
 function onRandomMeme() {
     toggleSections()
     setRandomMeme()
     renderMeme()
 }
-
 function insertEmoji(emoji) {
     addEmoji(emoji)
     renderMeme()
-
 }
+
 function onShareFacebook() {
     // Gets the image from the canvas
     const imgDataUrl = gCanvas.toDataURL('image/jpeg')

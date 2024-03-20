@@ -2,7 +2,6 @@
     font-size: 16px;
 }
 
-
 @media screen and (max-width:768px) {
     :root {
         font-size: 12px;
@@ -10,28 +9,47 @@
 
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        /* Adjust column width for smaller screens */
     }
 
     .editor {
         grid-template-columns: 1fr;
-        /* Change to single column layout on smaller screens */
     }
 
     .controls input[type="text"],
     .controls input[type="color"] {
         width: 100%;
-        /* Make inputs take up full width on smaller screens */
     }
 
     canvas {
+        width: 90%;
+        margin: 0 auto;
         order: 1;
-        /* Ensure the editor section appears first on mobile */
     }
 
     .controls {
         order: 2;
-        /* Ensure the controls section appears second on mobile */
     }
 
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        /* Center the entire nav vertically */
+        height: 100%;
+        /* Fill the entire height of the screen */
+    }
+
+    .nav-links {
+        position: static;
+        margin-top: 1em;
+    }
+
+    .header {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        /* Center the header horizontally */
+    }
 }

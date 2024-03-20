@@ -12,10 +12,10 @@ function getSavedMemes() {
     return loadFromStorage('savedMemes') || []
 }
 function renderSavedMemes() {
-    const savedMemes = getSavedMemes(); // Retrieve saved memes
-    const savedSection = document.querySelector('.saved'); // Get reference to the "Saved" section
+    const savedMemes = getSavedMemes()
+    const savedSection = document.querySelector('.saved')
 
-    savedSection.innerHTML = '';
+    savedSection.innerHTML = ''
 
     let strHtml = ''
 
@@ -28,7 +28,7 @@ function renderSavedMemes() {
             </div>
         `
     })
-    savedSection.innerHTML = strHtml;
+    savedSection.innerHTML = strHtml
 }
 
 function removeSavedMeme(index) {
