@@ -125,7 +125,7 @@ function renderMeme() {
         meme.lines.forEach((line, idx) => {
             if (idx === meme.selectedLineIdx) {
                 // Get the width and height of the text
-                const textWidth = getTextWidth(line.txt, line.size, 'Arial');
+                const textWidth = getTextWidth(line.txt, line.size, ' Montserrat');
                 const textHeight = line.size + 30
                 // Calculate the position and dimensions of the rectangle
                 const rectX = line.x - textWidth / 2 - 10; // Adjusted for center alignment
@@ -156,7 +156,7 @@ function drawText(text, x = 100, y = 100, fontSize, color) {
 
     gCtx.fillStyle = color
 
-    gCtx.font = `${fontSize}px Arial`
+    gCtx.font = `${fontSize}px  Montserrat`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
 

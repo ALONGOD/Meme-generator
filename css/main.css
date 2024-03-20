@@ -1,10 +1,12 @@
 html {
     background-color: grey;
     box-sizing: border-box;
+
 }
 
 
 nav {
+    font-family: Montserrat;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -17,6 +19,23 @@ nav {
     margin-bottom: 2em;
     padding: 1em 0;
 
+}
+
+nav a {
+    color: inherit;
+    /* Ensures that the color of the links inherits from their parent */
+    text-decoration: none;
+    /* Removes underlines from links */
+}
+
+nav a:hover {
+    color: #000;
+    /* Change the color of links on hover */
+}
+
+nav a:visited {
+    color: inherit;
+    /* Ensures that visited links inherit their color from their parent */
 }
 
 .nav-links {
@@ -233,6 +252,7 @@ footer {
     width: 100%;
     background-color: lightsalmon;
     font-size: 2em;
+    font-family: Montserrat;
     margin-bottom: 2em;
     padding: 1em 0;
 }
