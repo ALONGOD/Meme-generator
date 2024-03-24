@@ -6,14 +6,21 @@ html {
 
 /* Navigation Styles */
 nav {
-    font-family: Montserrat;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
     display: flex;
     justify-content: space-between;
-    background-color: lightsalmon;
-    font-size: 2em;
+
     margin-bottom: 2em;
     padding: 1em 0;
+
+    font-family: Montserrat;
+    background-color: lightsalmon;
+    font-size: 2em;
 }
 
 nav a {
@@ -72,6 +79,12 @@ nav a:visited {
 .gallery-img {
     width: 100%;
     height: auto;
+    transition: .6s;
+}
+
+.gallery-img:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 /* Editor Styles */
