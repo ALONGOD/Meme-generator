@@ -124,17 +124,14 @@ function renderMeme() {
         // Draw meme lines
         meme.lines.forEach((line, idx) => {
             if (idx === meme.selectedLineIdx) {
-                // Get the width and height of the text
-                const textWidth = getTextWidth(line.txt, line.size, ' Montserrat');
+                const textWidth = getTextWidth(line.txt, line.size, ' Montserrat')
                 const textHeight = line.size + 30
-                // Calculate the position and dimensions of the rectangle
-                const rectX = line.x - textWidth / 2 - 10; // Adjusted for center alignment
-                const rectY = line.y - textHeight / 2 - 5; // Adjusted for center alignment
-                const rectWidth = textWidth + 20; // Add padding for the sides
-                const rectHeight = textHeight + 10; // Add padding for the top and bottom
-                // Draw a frame around the selected line
-                gCtx.strokeStyle = 'white'; // Set the color of the frame
-                gCtx.lineWidth = 3; // Set the width of the frame
+                const rectX = line.x - textWidth / 2 - 10
+                const rectY = line.y - textHeight / 2 - 5
+                const rectWidth = textWidth + 20
+                const rectHeight = textHeight + 10
+                gCtx.strokeStyle = 'white'
+                gCtx.lineWidth = 3
                 gCtx.strokeRect(rectX, rectY, rectWidth, rectHeight)
             }
             drawText(line.txt, line.x, line.y, line.size, line.color)
@@ -212,7 +209,7 @@ function onMoveDown() {
     renderMeme()
 }
 function onDownloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
+    const imgContent = gElCanvas.toDataURL("image/jpeg")
     elLink.href = imgContent;
 }
 // gallery controller

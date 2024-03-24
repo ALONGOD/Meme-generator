@@ -1,41 +1,32 @@
+/* Global Styles */
 html {
     background-color: grey;
     box-sizing: border-box;
-
 }
 
-
+/* Navigation Styles */
 nav {
     font-family: Montserrat;
     position: relative;
     display: flex;
     justify-content: space-between;
-
-
-
-    /* width: 100vw; */
     background-color: lightsalmon;
     font-size: 2em;
     margin-bottom: 2em;
     padding: 1em 0;
-
 }
 
 nav a {
     color: inherit;
-    /* Ensures that the color of the links inherits from their parent */
     text-decoration: none;
-    /* Removes underlines from links */
 }
 
 nav a:hover {
     color: #000;
-    /* Change the color of links on hover */
 }
 
 nav a:visited {
     color: inherit;
-    /* Ensures that visited links inherit their color from their parent */
 }
 
 .nav-links {
@@ -47,7 +38,7 @@ nav a:visited {
     margin-left: 1em;
 }
 
-
+/* Random Meme Button Styles */
 .random-meme {
     display: inline-block;
     padding: 10px 20px;
@@ -64,38 +55,31 @@ nav a:visited {
 
 .random-meme:hover {
     background-color: #FF7043;
-    /* Lighter shade of orange on hover */
 }
 
-
+/* Gallery Styles */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    /* Adjust the column width as needed */
     gap: 20px;
-    /* Adjust the gap between images */
     padding: 20px;
 }
 
 .gallery-item {
     overflow: hidden;
-    /* Ensure images don't overflow their containers */
 }
 
 .gallery-img {
     width: 100%;
-    /* Ensure images take up the full width of their containers */
     height: auto;
-    /* Maintain aspect ratio */
 }
 
+/* Editor Styles */
 .editor {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.25em;
-    /* Converted from 20px */
     padding: 1.25em;
-    /* Converted from 20px */
 }
 
 .controls {
@@ -106,34 +90,26 @@ nav a:visited {
 
 .controls button {
     margin: 0.3125em 0;
-    /* Converted from 5px */
     padding: 0.5em 1em;
-    /* Converted from 8px 16px */
     font-size: 1em;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 0.25em;
-    /* Converted from 4px */
     cursor: pointer;
 }
 
 .controls input[type="text"],
 .controls input[type="color"] {
     margin: 0.3125em 0;
-    /* Converted from 5px */
     padding: 0.5em;
-    /* Converted from 8px */
     border-radius: 0.25em;
-    /* Converted from 4px */
     border: 0.0625em solid #521414;
-    /* Converted from 1px */
     width: 80%;
 }
 
-
 #text {
-    width: 20vw
+    width: 20vw;
 }
 
 #color {
@@ -142,7 +118,6 @@ nav a:visited {
 
 .controls label {
     margin: 0.3125em 0;
-    /* Converted from 5px */
     font-size: 1em;
 }
 
@@ -150,18 +125,15 @@ nav a:visited {
     display: flex;
     justify-content: center;
     margin-top: 1.25em;
-    /* Converted from 20px */
 }
 
 .arrow-button {
     padding: 0.625em 1.25em;
-    /* Converted from 10px 20px */
     font-size: 1.2em;
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 0.25em;
-    /* Converted from 4px */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -172,20 +144,17 @@ nav a:visited {
 
 .arrow-button:not(:last-child) {
     margin-right: 0.625em;
-    /* Converted from 10px */
 }
 
 .btn {
     display: inline-block;
     padding: 0.625em 1.25em;
-    /* Converted from 10px 20px */
     font-size: 1em;
     text-decoration: none;
     color: rgb(0, 0, 0);
     background-color: #ffffff;
     border: none;
     border-radius: 0.25em;
-    /* Converted from 4px */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -200,30 +169,23 @@ nav a:visited {
     justify-content: center;
     text-align: center;
     margin-top: 0.7em;
-    /* Converted from 20px */
 }
 
+/* Saved Memes Styles */
 .saved {
     display: flex;
-    /* Use flexbox to create a row layout */
     flex-wrap: wrap;
-    /* Allow items to wrap to the next line */
 }
 
 .saved-meme {
     margin: 10px;
-    /* Add margin between saved memes */
     width: 200px;
-    /* Set a fixed width for each saved meme */
 }
 
 .saved-meme img {
     width: 100%;
-    /* Make the image inside each saved meme container fill its parent's width */
     height: auto;
-    /* Maintain the aspect ratio of the image */
 }
-
 
 .remove-meme-btn {
     display: block;
@@ -242,12 +204,11 @@ nav a:visited {
     background-color: #cc0000;
 }
 
-
+/* Footer Styles */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     background-color: lightsalmon;
     font-size: 2em;
@@ -256,6 +217,7 @@ footer {
     padding: 1em 0;
 }
 
+/* Utility Classes */
 .hide {
     display: none;
 }
