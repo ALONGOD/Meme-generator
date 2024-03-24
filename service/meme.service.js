@@ -127,24 +127,7 @@ function moveLineDown() {
 }
 
 function addEmoji(emoji) {
-    switch (true) {
-        case emoji.includes("😀"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😀"
-            break
-        case emoji.includes("😂"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😂"
-            break
-        case emoji.includes("😡"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😡"
-            break
-        case emoji.includes("😱"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "😱"
-            break
-        case emoji.includes("❤️"):
-            gMeme.lines[gMeme.selectedLineIdx].txt += "❤️"
-            break
-    }
-
+    gMeme.lines[gMeme.selectedLineIdx].txt += emoji
 }
 
 
