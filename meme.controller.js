@@ -24,8 +24,9 @@ function onTouchStart(event) {
     const touch = event.touches[0]
     const touchX = touch.clientX - gCanvas.getBoundingClientRect().left
     const touchY = touch.clientY - gCanvas.getBoundingClientRect().top
+    var meme = getMeme()
 
-    gMeme.lines.forEach((line, idx) => {
+    meme.lines.forEach((line, idx) => {
         const textWidth = getTextWidth(line.txt, line.size, 'Arial')
         const textHeight = line.size
 
@@ -38,7 +39,8 @@ function onTouchStart(event) {
             gIsDragging = true
             gDragOffsetX = touchX - line.x
             gDragOffsetY = touchY - line.y
-            gMeme.selectedLineIdx = idx
+            meme.selectedLineIdx = idx
+            saveMeme(meme)
             renderMeme();
         }
     });
@@ -51,8 +53,12 @@ function onTouchMove(event) {
     const touchX = touch.clientX - gCanvas.getBoundingClientRect().left
     const touchY = touch.clientY - gCanvas.getBoundingClientRect().top
 
-    gMeme.lines[gMeme.selectedLineIdx].x = touchX - gDragOffsetX
-    gMeme.lines[gMeme.selectedLineIdx].y = touchY - gDragOffsetY
+    var meme = getMeme()
+
+    meme.lines[meme.selectedLineIdx].x = touchX - gDragOffsetX
+    meme.lines[meme.selectedLineIdx].y = touchY - gDragOffsetY
+
+    saveMeme(meme)
 
     renderMeme()
 }
@@ -64,7 +70,7 @@ function onMouseDown(event) {
     const mouseX = event.offsetX
     const mouseY = event.offsetY
 
-    const meme = getMeme()
+    var meme = getMeme()
     meme.lines.forEach((line, idx) => {
         const textWidth = getTextWidth(line.txt, line.size, 'Arial')
         const textHeight = line.size
@@ -78,7 +84,8 @@ function onMouseDown(event) {
             gIsDragging = true
             gDragOffsetX = mouseX - line.x
             gDragOffsetY = mouseY - line.y
-            gMeme.selectedLineIdx = idx
+            meme.selectedLineIdx = idx
+            saveMeme(meme)
             renderMeme();
         }
     })
@@ -89,8 +96,11 @@ function onMouseMove(event) {
     const mouseX = event.offsetX
     const mouseY = event.offsetY
 
-    gMeme.lines[gMeme.selectedLineIdx].x = mouseX - gDragOffsetX
-    gMeme.lines[gMeme.selectedLineIdx].y = mouseY - gDragOffsetY
+    var meme = getMeme()
+
+    meme.lines[meme.selectedLineIdx].x = mouseX - gDragOffsetX
+    meme.lines[meme.selectedLineIdx].y = mouseY - gDragOffsetY
+    saveMeme(meme)
 
     renderMeme()
 }
