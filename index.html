@@ -34,11 +34,11 @@
             <input oninput="onWriteTxt(this)" placeholder="Meme text..." id="text" type="text">
             <label for="color">Text Color:</label>
             <input oninput="onChangeColor(this)" id="color" type="color">
-            <button onclick="onChangeFontSize('+')">A+</button>
-            <button onclick="onChangeFontSize('-')">A-</button>
-            <button onclick="onAddLine()">Add Line</button>
-            <button onclick="onSwitchLine()">Switch Line</button>
-            <button onclick="onDeleteLine()">Delete Line</button>
+            <button class="btn" onclick="onChangeFontSize('+')">A+</button>
+            <button class="btn" onclick="onChangeFontSize('-')">A-</button>
+            <button class="btn" onclick="onAddLine()">Add Line</button>
+            <button class="btn" onclick="onSwitchLine()">Switch Line</button>
+            <button class="btn" onclick="onDeleteLine()">Delete Line</button>
             <div class="arrow-buttons">
                 <button onclick="onMoveLeft()" class="arrow-button">⬅️</button>
                 <button onclick="onMoveRight()" class="arrow-button">➡️</button>
