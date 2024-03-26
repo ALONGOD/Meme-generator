@@ -218,8 +218,9 @@ function onMoveDown() {
     moveLineDown()
     renderMeme()
 }
+
 function onDownloadImg(elLink) {
-    const imgContent = gElCanvas.toDataURL("image/jpeg")
+    const imgContent = gCanvas.toDataURL("image/jpeg")
     elLink.href = imgContent;
 }
 // gallery controller
