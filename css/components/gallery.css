@@ -1,0 +1,22 @@
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    transition: .6s;
+}
+
+.gallery-img:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}

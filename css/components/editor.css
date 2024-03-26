@@ -1,0 +1,96 @@
+/* Editor Styles */
+.editor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25em;
+    padding: 1.25em;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls button {
+    margin: 0.3125em 0;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+
+.controls input[type="text"],
+.controls input[type="color"] {
+    margin: 0.3125em 0;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    border: 0.0625em solid #521414;
+    width: 80%;
+}
+
+#text {
+    width: 20vw;
+}
+
+#color {
+    width: 10vw;
+}
+
+.controls label {
+    margin: 0.3125em 0;
+    font-size: 1em;
+}
+
+.arrow-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25em;
+}
+
+.arrow-button {
+    padding: 0.625em 1.25em;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover {
+    background-color: #6daf71;
+}
+
+.arrow-button:not(:last-child) {
+    margin-right: 0.625em;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.625em 1.25em;
+    font-size: 1em;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.7em;
+}

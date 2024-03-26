@@ -1,0 +1,11 @@
+/* Global Styles */
+html {
+    background-color: grey;
+    box-sizing: border-box;
+}
+
+
+/* Utility Classes */
+.hide {
+    display: none;
+}

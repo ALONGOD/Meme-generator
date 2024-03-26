@@ -1,0 +1,32 @@
+/* Saved Memes Styles */
+.saved {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.saved-meme {
+    margin: 10px;
+    width: 200px;
+}
+
+.saved-meme img {
+    width: 100%;
+    height: auto;
+}
+
+.remove-meme-btn {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-meme-btn:hover {
+    background-color: #cc0000;
+}

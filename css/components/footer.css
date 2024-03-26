@@ -1,0 +1,12 @@
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: lightsalmon;
+    font-size: 2em;
+    font-family: Montserrat;
+    margin-bottom: 2em;
+    padding: 1em 0;
+}
