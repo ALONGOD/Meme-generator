@@ -6,6 +6,12 @@ function onSaveMeme() {
     savedMemes.push(meme)
     saveToStorage('savedMemes', savedMemes)
     renderSavedMemes()
+    displaySuccessMessage()
+}
+function displaySuccessMessage() {
+    const successMessageContainer = document.querySelector('.success-message');
+    successMessageContainer.style.opacity = '1'
+    setTimeout(() => { successMessageContainer.style.opacity = '0' }, 3000)
 }
 
 function getSavedMemes() {
