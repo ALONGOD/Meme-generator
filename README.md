@@ -36,6 +36,10 @@ To run the meme generator locally:
 - Click "Save Meme" to save your creation.
 - Use the share buttons to share your meme on Facebook or download it.
 
+## Link to the Project
+
+You can access the Meme Generator project [here](alongod.github.io/Meme-generator/).
+
 ## Credits
 
 - Alon Goddard - Developer
