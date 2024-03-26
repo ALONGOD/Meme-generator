@@ -50,3 +50,19 @@ nav a:visited {
 .random-meme:hover {
     background-color: #FF7043;
 }
+
+.success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    opacity: 1;
+    transition: .6s;
+    opacity: 0;
+}
