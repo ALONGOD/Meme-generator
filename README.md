@@ -38,7 +38,7 @@ To run the meme generator locally:
 
 ## Link to the Project
 
-You can access the Meme Generator project [here](alongod.github.io/Meme-generator/).
+You can access the Meme Generator project [here](https://alongod.github.io/Meme-generator/).
 
 ## Credits
 
